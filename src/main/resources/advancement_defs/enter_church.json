@@ -14,8 +14,7 @@
     "parent": "bcp:root",
     "criteria": {
         "enable": {
-            "trigger": "minecraft:impossible",
-            "conditions": []
+            "trigger": "minecraft:impossible"
         }
     }
 }

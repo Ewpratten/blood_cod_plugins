@@ -38,7 +38,7 @@ public class UserRegistry {
     public void load() throws IOException {
 
         // Get file
-        InputStream fileStream = getClass().getResourceAsStream("users.json");
+        InputStream fileStream = getClass().getResourceAsStream("/users.json");
         String jsonData = IOUtils.toString(fileStream, Charset.defaultCharset());
 
         // Deserialize

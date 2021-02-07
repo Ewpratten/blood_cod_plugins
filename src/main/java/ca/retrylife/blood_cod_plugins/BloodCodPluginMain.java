@@ -11,6 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
 import ca.retrylife.blood_cod_plugins.advancements.AdvancementList;
+import ca.retrylife.blood_cod_plugins.hooks.ConnectionEvent;
+import ca.retrylife.blood_cod_plugins.hooks.InventoryEvent;
 import ca.retrylife.blood_cod_plugins.hooks.MovementEvent;
 import ca.retrylife.blood_cod_plugins.hooks.PunchEvent;
 import ca.retrylife.blood_cod_plugins.registry.AdvancementRegistry;
@@ -69,8 +71,10 @@ public class BloodCodPluginMain extends JavaPlugin {
         }
 
         // Register event listeners
+        getServer().getPluginManager().registerEvents(new ConnectionEvent(), this);
         getServer().getPluginManager().registerEvents(new PunchEvent(), this);
         getServer().getPluginManager().registerEvents(new MovementEvent(), this);
+        getServer().getPluginManager().registerEvents(new InventoryEvent(), this);
 
     }
 

@@ -37,7 +37,7 @@ public class RegionRegistry {
     public void load() throws IOException {
 
         // Get file
-        InputStream fileStream = getClass().getResourceAsStream("regionmap.json");
+        InputStream fileStream = getClass().getResourceAsStream("/regionmap.json");
         String jsonData = IOUtils.toString(fileStream, Charset.defaultCharset());
 
         // Deserialize

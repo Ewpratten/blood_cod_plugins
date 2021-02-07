@@ -1,7 +1,7 @@
 {
     "display": {
         "icon": {
-            "item": "minecraft:fire"
+            "item": "minecraft:nether_star"
         },
         "title": "Enlightenment",
         "description": "Feel the touch of cod",
@@ -14,8 +14,7 @@
     "parent": "bcp:root",
     "criteria": {
         "enable": {
-            "trigger": "minecraft:impossible",
-            "conditions": []
+            "trigger": "minecraft:impossible"
         }
     }
 }

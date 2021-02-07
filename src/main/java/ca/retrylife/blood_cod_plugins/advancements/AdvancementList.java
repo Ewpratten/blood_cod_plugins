@@ -11,6 +11,10 @@ public enum AdvancementList {
     @SuppressWarnings("deprecation")
     ENTER_CHURCH(new NamespacedKey("bcp", "enter_church"), "enter_church"),
 
+    // Robe Up
+    @SuppressWarnings("deprecation")
+    ROBE_UP(new NamespacedKey("bcp", "robe_up"), "robes"),
+
     // Lightning strike
     @SuppressWarnings("deprecation")
     ENLIGHTENMENT(new NamespacedKey("bcp", "enlightenment"), "enlightenment");
