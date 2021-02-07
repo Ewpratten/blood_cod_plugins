@@ -22,5 +22,29 @@
             "x": -139,
             "z": 617
         }
+    },
+    {
+        "dimension": "overworld",
+        "id": "percy_church",
+        "corner_a": {
+            "x": -304,
+            "z": 1873
+        },
+        "corner_b": {
+            "x": -320,
+            "z": 1885
+        }
+    },
+    {
+        "dimension": "overworld",
+        "id": "common_church",
+        "corner_a": {
+            "x": 1720,
+            "z": 375
+        },
+        "corner_b": {
+            "x": 1710,
+            "z": 393
+        }
     }
 ]

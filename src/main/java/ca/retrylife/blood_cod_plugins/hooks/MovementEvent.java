@@ -19,6 +19,8 @@ public class MovementEvent implements Listener {
             return;
         }
 
+        // Handle player entering a region
+        
         
 
     }
