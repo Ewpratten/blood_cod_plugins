@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:trident"
+        },
+        "title": "Religion",
+        "description": "",
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+        "frame": "task",
+        "announce_to_chat": false,
+        "show_toast": false,
+        "hidden": false
+    },
+    "parent": "",
+    "criteria": {
+        "enable": {
+            "trigger": "minecraft:impossible",
+            "conditions": []
+        }
+    }
+}

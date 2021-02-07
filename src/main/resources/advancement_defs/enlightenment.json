@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:fire"
+        },
+        "title": "Enlightenment",
+        "description": "Feel the touch of cod",
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+        "frame": "challenge",
+        "announce_to_chat": true,
+        "show_toast": true,
+        "hidden": false
+    },
+    "parent": "bcp:root",
+    "criteria": {
+        "enable": {
+            "trigger": "minecraft:impossible",
+            "conditions": []
+        }
+    }
+}
