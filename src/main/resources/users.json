@@ -1,7 +1,6 @@
 [
     {
         "uuid":"8b24c526-aea8-4eb7-80bb-34645d2e958e",
-        "color": "gold",
         "permissions": [
             "godlike",
             "pope"

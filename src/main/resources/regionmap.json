@@ -1,34 +1,26 @@
 [
     {
-        "name": "The church",
-        "dimension":"overworld",
-        "id":"church",
-        "subtitle": "Enter the church of the Blood Cod",
-        "area": [
-            {
-                "x": -494,
-                "z": 136
-            },
-            {
-                "x": -509,
-                "z": 161
-            }
-        ]
+        "dimension": "overworld",
+        "id": "church",
+        "corner_a": {
+            "x": -494,
+            "z": 136
+        },
+        "corner_b": {
+            "x": -509,
+            "z": 161
+        }
     },
     {
-        "name": "Bloodland",
-        "dimension":"overworld",
-        "id":"bloodland",
-        "subtitle": "Enter the Bloodland",
-        "area": [
-            {
-                "x": -90,
-                "z": 511
-            },
-            {
-                "x": -139,
-                "z": 617
-            }
-        ]
+        "dimension": "overworld",
+        "id": "bloodland",
+        "corner_a": {
+            "x": -90,
+            "z": 511
+        },
+        "corner_b": {
+            "x": -139,
+            "z": 617
+        }
     }
 ]

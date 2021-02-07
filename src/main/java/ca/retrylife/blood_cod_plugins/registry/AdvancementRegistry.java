@@ -65,11 +65,16 @@ public class AdvancementRegistry {
         InputStream fileStream = getClass().getResourceAsStream(String.format("advancement_defs/%s.json", fileTitle));
         String jsonData = IOUtils.toString(fileStream, Charset.defaultCharset());
 
-        // Load the advancement
-        Advancement advancement = Bukkit.getUnsafe().loadAdvancement(key, jsonData);
+        try {
+            // Load the advancement
+            Advancement advancement = Bukkit.getUnsafe().loadAdvancement(key, jsonData);
 
-        // Add to registry
-        this.advancements.put(key, advancement);
+            // Add to registry
+            this.advancements.put(key, advancement);
+        } catch (IllegalArgumentException e) {
+            Bukkit.getLogger()
+                    .info(String.format("Failed to load advancement %s. It may already exist", key.toString()));
+        }
     }
 
     /**
