@@ -69,7 +69,7 @@ public class PunchEvent implements Listener {
                 }
 
                 // Keep track of the damaged
-                SmittenRegistry.getInstance().setMostRecentVictim(damaged);
+                SmittenRegistry.getInstance().setMostRecentVictim((LivingEntity) damaged);
 
             }
 
