@@ -13,7 +13,7 @@ public class CodWaterRecipe extends ShapedRecipe {
 
         // Configure recipe
         super.shape("BC");
-        super.setIngredient('B', Material.POTION);
+        super.setIngredient('B', Material.GLASS_BOTTLE);
         super.setIngredient('C', Material.COD);
     }
     

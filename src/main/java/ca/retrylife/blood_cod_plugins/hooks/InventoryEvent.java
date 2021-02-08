@@ -1,7 +1,6 @@
 package ca.retrylife.blood_cod_plugins.hooks;
 
 import org.bukkit.Color;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,43 +19,37 @@ public class InventoryEvent implements Listener {
     @EventHandler
     public void handlePlayerInventoryAction(InventoryCloseEvent event) {
 
-        // Get the clothes of the player
-        ItemStack helmet = event.getPlayer().getInventory().getHelmet();
-        ItemStack chest = event.getPlayer().getInventory().getChestplate();
-        ItemStack legs = event.getPlayer().getInventory().getLeggings();
-        ItemStack boots = event.getPlayer().getInventory().getBoots();
+        // Allocate an array for the player's full set of clothing
+        ItemStack[] clothing = new ItemStack[] { event.getPlayer().getInventory().getHelmet(),
+                event.getPlayer().getInventory().getChestplate(), event.getPlayer().getInventory().getLeggings(),
+                event.getPlayer().getInventory().getBoots(),
 
-        // Ensure wearing a full set
-        if (helmet == null || chest == null || legs == null || boots == null) {
-            return;
-        }
+        };
 
-        // Ensure the correct clothes are worn
-        if (
-        // @formatter:off
-            helmet.getType().equals(Material.LEATHER_HELMET) &&
-            chest.getType().equals(Material.LEATHER_CHESTPLATE) &&
-            legs.getType().equals(Material.LEATHER_LEGGINGS) &&
-            boots.getType().equals(Material.LEATHER_BOOTS) 
-        // @formatter:on
-        ) {
+        // Ensure every single armor slot is red leather, otherwise, skip the
+        // advancement
+        for (ItemStack itemStack : clothing) {
 
-            // Ensure everything is the correct color
-            if (
-            // @formatter:off
-                ((LeatherArmorMeta) helmet.getItemMeta()).getColor().equals(RED_DYE_COLOR) &&
-                ((LeatherArmorMeta) chest.getItemMeta()).getColor().equals(RED_DYE_COLOR) &&
-                ((LeatherArmorMeta) legs.getItemMeta()).getColor().equals(RED_DYE_COLOR) &&
-                ((LeatherArmorMeta) boots.getItemMeta()).getColor().equals(RED_DYE_COLOR) 
-            // @formatter:on
-            ) {
+            // Skip if null
+            if (itemStack == null) {
+                return;
+            }
 
-                // Award the player their new advancement
-                AdvancementRegistry.getInstance().awardAdvancementToPlayer((Player) event.getPlayer(), AdvancementList.ROBE_UP);
+            // Skip if not leather
+            if (!itemStack.getType().toString().contains("LEATHER")
+                    || !(itemStack.getItemMeta() instanceof LeatherArmorMeta)) {
+                return;
+            }
 
+            // Skip if not red
+            if (!((LeatherArmorMeta) itemStack.getItemMeta()).getColor().equals(RED_DYE_COLOR)) {
+                return;
             }
 
         }
+
+        // Award the advancement
+        AdvancementRegistry.getInstance().awardAdvancementToPlayer((Player) event.getPlayer(), AdvancementList.ROBE_UP);
 
     }
 

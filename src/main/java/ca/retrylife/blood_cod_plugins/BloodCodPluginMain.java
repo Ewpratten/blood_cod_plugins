@@ -82,7 +82,7 @@ public class BloodCodPluginMain extends JavaPlugin {
 
         // Custom crafting
         getServer().addRecipe(new CodBreadRecipe());
-        // getServer().addRecipe(new CodWaterRecipe());
+        getServer().addRecipe(new CodWaterRecipe());
 
 
     }
