@@ -23,6 +23,14 @@ public enum AdvancementList {
     @SuppressWarnings("deprecation")
     ROBE_UP(new NamespacedKey("bcp", "robe_up"), "robes"),
 
+    // Not water
+    @SuppressWarnings("deprecation")
+    NOT_WATER(new NamespacedKey("bcp", "not_water"), "not_water"),
+
+    // Not bread
+    @SuppressWarnings("deprecation")
+    NOT_BREAD(new NamespacedKey("bcp", "not_bread"), "not_bread"),
+
     // Lightning strike
     @SuppressWarnings("deprecation")
     ENLIGHTENMENT(new NamespacedKey("bcp", "enlightenment"), "enlightenment"),

@@ -1,17 +1,17 @@
 {
     "display": {
         "icon": {
-            "item": "minecraft:lava_bucket"
+            "item": "minecraft:bread"
         },
-        "title": "Box of Flames",
-        "description": "Enter Bloodland",
+        "title": "Thats Not Bread!",
+        "description": "Experience the body of cod",
         "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
         "frame": "task",
         "announce_to_chat": true,
         "show_toast": true,
         "hidden": false
     },
-    "parent": "bcp:enter_church",
+    "parent": "bcp:not_water",
     "criteria": {
         "enable": {
             "trigger": "minecraft:impossible"

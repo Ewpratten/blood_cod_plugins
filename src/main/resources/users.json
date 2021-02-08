@@ -5,5 +5,11 @@
             "godlike",
             "pope"
         ]
+    },
+    {
+        "uuid":"390b7445-5d17-404b-a856-53235a3b185e",
+        "permissions": [
+            "god"
+        ]
     }
 ]

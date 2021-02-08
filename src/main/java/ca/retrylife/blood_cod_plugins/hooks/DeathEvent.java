@@ -37,6 +37,7 @@ public class DeathEvent implements Listener {
             // Play sound
             World world = deadPlayer.getWorld();
             world.playSound(deadPlayer.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0f, 1.0f);
+            world.playSound(deadPlayer.getLocation(), Sound.ITEM_TOTEM_USE, 1.0f, 1.0f);
 
         }
 
@@ -60,6 +61,7 @@ public class DeathEvent implements Listener {
             // Play sound
             World world = deadEntity.getWorld();
             world.playSound(deadEntity.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0f, 1.0f);
+            world.playSound(deadEntity.getLocation(), Sound.ITEM_TOTEM_USE, 1.0f, 1.0f);
 
         }
 

@@ -1,17 +1,17 @@
 {
     "display": {
         "icon": {
-            "item": "minecraft:lava_bucket"
+            "item": "minecraft:glass_bottle"
         },
-        "title": "Box of Flames",
-        "description": "Enter Bloodland",
+        "title": "Thats Not Water!",
+        "description": "Get a nice mouth-full of the blood cod's tank water",
         "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
         "frame": "task",
         "announce_to_chat": true,
         "show_toast": true,
         "hidden": false
     },
-    "parent": "bcp:enter_church",
+    "parent": "bcp:root",
     "criteria": {
         "enable": {
             "trigger": "minecraft:impossible"

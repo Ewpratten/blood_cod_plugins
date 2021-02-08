@@ -49,7 +49,9 @@ public class PunchEvent implements Listener {
 
                 // Give health boost to the damager
                 ((Player) damager)
-                        .addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 20 * 7, 20, false, false));
+                        .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20 * 14, 20, false, false));
+                ((Player) damager)
+                        .addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 20 * 14, 20, false, false));
 
                 // Smite the damaged
                 Bukkit.getLogger().info(String.format("%s has felt the power of nature", damaged.getName()));
