@@ -11,7 +11,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
 import ca.retrylife.blood_cod_plugins.advancements.AdvancementList;
+import ca.retrylife.blood_cod_plugins.crafting.CodBreadRecipe;
+import ca.retrylife.blood_cod_plugins.crafting.CodWaterRecipe;
 import ca.retrylife.blood_cod_plugins.hooks.ConnectionEvent;
+import ca.retrylife.blood_cod_plugins.hooks.DeathEvent;
 import ca.retrylife.blood_cod_plugins.hooks.InventoryEvent;
 import ca.retrylife.blood_cod_plugins.hooks.MovementEvent;
 import ca.retrylife.blood_cod_plugins.hooks.PunchEvent;
@@ -75,6 +78,12 @@ public class BloodCodPluginMain extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PunchEvent(), this);
         getServer().getPluginManager().registerEvents(new MovementEvent(), this);
         getServer().getPluginManager().registerEvents(new InventoryEvent(), this);
+        getServer().getPluginManager().registerEvents(new DeathEvent(), this);
+
+        // Custom crafting
+        getServer().addRecipe(new CodBreadRecipe());
+        // getServer().addRecipe(new CodWaterRecipe());
+
 
     }
 

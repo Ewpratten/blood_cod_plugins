@@ -7,6 +7,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import ca.retrylife.blood_cod_plugins.advancements.AdvancementList;
 import ca.retrylife.blood_cod_plugins.registry.AdvancementRegistry;
+import ca.retrylife.blood_cod_plugins.registry.SmittenRegistry;
 import ca.retrylife.blood_cod_plugins.registry.UserRegistry;
 
 import org.bukkit.Bukkit;
@@ -37,6 +38,7 @@ public class PunchEvent implements Listener {
 
                 // Give fire resistance to the damaged
                 damaged.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 20 * 7, 3, false, false));
+                damager.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 20 * 7, 20, false, false));
 
                 // Smite the damaged
                 Bukkit.getLogger().info(String.format("Player %s has felt the power of nature", damaged.getName()));
@@ -48,6 +50,9 @@ public class PunchEvent implements Listener {
 
                 // Play an extra sound
                 world.playSound(damaged.getLocation(), Sound.ITEM_TRIDENT_THUNDER, 1.0f, 1.0f);
+
+                // Set the victim
+                SmittenRegistry.getInstance().setMostRecentVictim(damaged);
 
             }
 

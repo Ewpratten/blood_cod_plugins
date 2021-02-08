@@ -25,7 +25,11 @@ public enum AdvancementList {
 
     // Lightning strike
     @SuppressWarnings("deprecation")
-    ENLIGHTENMENT(new NamespacedKey("bcp", "enlightenment"), "enlightenment");
+    ENLIGHTENMENT(new NamespacedKey("bcp", "enlightenment"), "enlightenment"),
+    
+    // Sacrifice
+    @SuppressWarnings("deprecation")
+    ULTIMATE_SACRIFICE(new NamespacedKey("bcp", "ultimate_sacrifice"), "ultimate_sacrifice");
 
     private final NamespacedKey name;
     private final String fileTitle;

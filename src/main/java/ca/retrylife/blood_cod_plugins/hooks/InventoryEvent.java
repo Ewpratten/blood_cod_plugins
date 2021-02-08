@@ -26,6 +26,11 @@ public class InventoryEvent implements Listener {
         ItemStack legs = event.getPlayer().getInventory().getLeggings();
         ItemStack boots = event.getPlayer().getInventory().getBoots();
 
+        // Ensure wearing a full set
+        if (helmet == null || chest == null || legs == null || boots == null) {
+            return;
+        }
+
         // Ensure the correct clothes are worn
         if (
         // @formatter:off
