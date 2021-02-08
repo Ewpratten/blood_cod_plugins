@@ -1,5 +1,6 @@
 package ca.retrylife.blood_cod_plugins.registry;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class SmittenRegistry {
@@ -20,20 +21,16 @@ public class SmittenRegistry {
     }
 
     // Victim
-    private Player victim = null;
-    private double timestamp;
 
     // Hidden constructor to force singleton usage
     private SmittenRegistry() {
     }
 
-    public void setMostRecentVictim(Player player) {
-        this.victim = player;
-        this.timestamp = System.currentTimeMillis();
+    public void setMostRecentVictim(Entity entity) {
     }
 
-    public boolean isFinalBlow(Player player) {
-        return (player.equals(this.victim) && Math.abs(System.currentTimeMillis() - this.timestamp) < 2000);
+    public boolean isFinalBlow(Entity entity) {
+        return false;
     }
 
 }

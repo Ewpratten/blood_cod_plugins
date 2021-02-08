@@ -23,67 +23,53 @@ public class PunchEvent implements Listener {
     @EventHandler
     public void handlePlayerPunchEvent(EntityDamageByEntityEvent event) {
 
-        // Both actors must be players
-        if (event.getDamager() instanceof Player && event.getEntity() instanceof Player) {
+        // Get both actors
+        Entity damager = event.getDamager();
+        Entity damaged = event.getEntity();
 
-            // Get the two actors
-            Player damager = (Player) event.getDamager();
-            Player damaged = (Player) event.getEntity();
+        // Ensure the entities are Player and LivingEntity
+        if (damager instanceof Player && damaged instanceof LivingEntity) {
 
-            // Check that the damager is godlike
-            if (UserRegistry.getInstance().doesPlayerHavePermission(damager, "godlike")) {
+            // Find the player's Permissions
+            boolean isGodlike = UserRegistry.getInstance().doesPlayerHavePermission((Player) damager, "godlike");
+            boolean isGod = UserRegistry.getInstance().doesPlayerHavePermission((Player) damager, "god");
 
-                // Get the world the damaged player is in
-                World world = damaged.getWorld();
+            // Determine the damaged entity type
+            boolean isDamagedPlayer = damaged instanceof Player;
 
-                // Give fire resistance to the damaged
-                damaged.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 20 * 7, 3, false, false));
-                damager.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 20 * 7, 20, false, false));
+            // The damager must be at least godlike to continue
+            if (isGod || (isGodlike && isDamagedPlayer)) {
 
-                // Smite the damaged
-                Bukkit.getLogger().info(String.format("Player %s has felt the power of nature", damaged.getName()));
-                world.strikeLightning(damaged.getLocation());
-
-                // Award the actors the corresponding advancement
-                AdvancementRegistry.getInstance().awardAdvancementToPlayer(damager, AdvancementList.ENLIGHTENMENT);
-                AdvancementRegistry.getInstance().awardAdvancementToPlayer(damaged, AdvancementList.ENLIGHTENMENT);
-
-                // Play an extra sound
-                world.playSound(damaged.getLocation(), Sound.ITEM_TRIDENT_THUNDER, 1.0f, 1.0f);
-
-                // Set the victim
-                SmittenRegistry.getInstance().setMostRecentVictim(damaged);
-
-            }
-
-        }
-        // This only works when debugging
-        else if (event.getDamager() instanceof Player && event.getEntity() instanceof LivingEntity
-                && event.getDamager().getUniqueId().toString().equals("390b7445-5d17-404b-a856-53235a3b185e")) {
-
-            // Get the two actors
-            Player damager = (Player) event.getDamager();
-            Entity damaged = event.getEntity();
-
-            // Check that the damager is godlike
-            if (UserRegistry.getInstance().doesPlayerHavePermission(damager, "godlike")) {
-
-                // Get the world the damaged player is in
+                // Get the world of the damaged entity
                 World world = damaged.getWorld();
 
                 // Give fire resistance to the damaged
                 ((LivingEntity) damaged)
                         .addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 20 * 7, 3, false, false));
 
+                // Give health boost to the damager
+                ((Player) damager)
+                        .addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 20 * 7, 20, false, false));
+
                 // Smite the damaged
-                Bukkit.getLogger().info(String.format("Player %s has felt the power of nature", damaged.getName()));
+                Bukkit.getLogger().info(String.format("%s has felt the power of nature", damaged.getName()));
                 world.strikeLightning(damaged.getLocation());
 
-                // Award the actors the corresponding advancement
-                AdvancementRegistry.getInstance().awardAdvancementToPlayer(damager, AdvancementList.ENLIGHTENMENT);
-
-                // Play an extra sound
+                // Play extra sounds
                 world.playSound(damaged.getLocation(), Sound.ITEM_TRIDENT_THUNDER, 1.0f, 1.0f);
+
+                // Award advancement to the damager
+                AdvancementRegistry.getInstance().awardAdvancementToPlayer((Player) damager,
+                        AdvancementList.ENLIGHTENMENT);
+
+                // Possibly award advancement to the damaged
+                if (isDamagedPlayer) {
+                    AdvancementRegistry.getInstance().awardAdvancementToPlayer((Player) damaged,
+                            AdvancementList.ENLIGHTENMENT);
+                }
+
+                // Keep track of the damaged
+                SmittenRegistry.getInstance().setMostRecentVictim(damaged);
 
             }
 
