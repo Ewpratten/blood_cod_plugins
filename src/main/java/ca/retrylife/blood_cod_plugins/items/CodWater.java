@@ -12,12 +12,14 @@ import org.bukkit.potion.PotionType;
 
 public class CodWater extends ItemStack {
 
+    private static final String ITEM_NAME = "Tank Water of Cod";
+
     public CodWater(int quantity) {
         super(Material.POTION, quantity);
 
         // Configure the item lore
         ItemMeta meta = super.getItemMeta();
-        meta.setDisplayName("Tank Water of Cod");
+        meta.setDisplayName(ITEM_NAME);
         meta.setLore(Arrays.asList("A little muddy", "Tastes like the color brown"));
 
         // Configure the potion data
@@ -27,6 +29,10 @@ public class CodWater extends ItemStack {
         potionMeta.setColor(Color.fromRGB(8606770));
 
         super.setItemMeta(meta);
+    }
+
+    public static boolean isCodWater(ItemStack items) {
+        return items.getItemMeta().getDisplayName().equals(ITEM_NAME);
     }
 
 }
