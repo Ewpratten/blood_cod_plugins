@@ -24,8 +24,8 @@ The following custom advancements have been added to the game. More can be added
 | Robe Up            | Wear a full set of red leather armor                                |
 | Thats Not Water!   | Drink `Tank Water of Cod`                                           |
 | Thats Not Bread!   | Eat `Bread of Cod`                                                  |
-| Enlightenment      | Get smited by the :B:ope                                            |
-| Ultimate Sacrifice | Get smited to death by the :B:ope                                   |
+| Enlightenment      | Get smited by the 🅱️ope                                            |
+| Ultimate Sacrifice | Get smited to death by the 🅱️ope                                   |
 
 These advancements are defined in [datapack format](https://minecraft.gamepedia.com/Advancement/JSON_format) in the [`src/main/resources/advancement_defs/`](https://github.com/Ewpratten/blood_cod_plugins/tree/master/src/main/resources/advancement_defs) directory. On server startup, the plugin compiles and injects it's own datapack into the server.
 
