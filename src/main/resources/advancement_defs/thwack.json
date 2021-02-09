@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:cod"
+        },
+        "title": "Whack a Mole",
+        "description": "Thwack!",
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+        "frame": "goal",
+        "announce_to_chat": true,
+        "show_toast": true,
+        "hidden": false
+    },
+    "parent": "bcp:root",
+    "criteria": {
+        "enable": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}
