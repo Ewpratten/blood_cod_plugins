@@ -44,6 +44,14 @@ repositories {
     maven { url "https://libraries.minecraft.net" }
     maven { url = "https://repo.aikar.co/content/groups/aikar/" }
     maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+    maven {
+        name "retrylife-release"
+        url "https://release.maven.retrylife.ca/"
+    }
+    maven {
+        name "retrylife-snapshot"
+        url "https://snapshot.maven.retrylife.ca/"
+    }
 }
 
 def urlFile = { url, name ->
@@ -80,6 +88,11 @@ dependencies {
 
     // JSON handler
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // Core library
+    implementation 'ca.retrylife.mc.plugins:plugin-core:1.0.+'
+    implementation 'ca.retrylife.mc.plugins:plugin-core:1.0.+:sources'
+    implementation 'ca.retrylife.mc.plugins:plugin-core:1.0.+:javadoc'
 
 }
 
